@@ -21,7 +21,7 @@
           <% if logged_in? && !voted? %>
             <%= f.submit 'いいね', class: 'btn btn-success btn-lg' %>
           <% else %>
-            <%= f.submit 'いいね', class: 'btn btn-success btn-lg disabled' %>
+            <%= f.submit 'いいね', class: 'btn btn-success btn-lg disabled', :disabled => true %>
           <% end %>
           <% unless logged_in? %><p>ログインしてください</p><% end %>
           <% if logged_in? && voted? %><p>いいねは1人1回までです</p><% end %>
