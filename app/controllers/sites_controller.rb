@@ -17,10 +17,11 @@ class SitesController < ApplicationController
     @site = Site.new(site_params)
     if @site.save
       flash[:success] = 'サイトを登録しました'
+      redirect_to root_path
     else
       flash.now[:danger] = 'サイトを登録できませんでした'
+      render :new
     end
-    redirect_to root_path
   end
   
   private
