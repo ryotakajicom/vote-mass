@@ -17,7 +17,12 @@
         <%= f.hidden_field :site_id, :value => params[:id] %>
         <%= f.text_area :comment, class: 'form-control input-large', placeholder: 'コメント(任意)' %>
         <div class="text-center btn-like">
-          <%= f.submit 'いいね', class: 'btn btn-success btn-lg' %>
+          <% if logged_in? %>
+            <%= f.submit 'いいね', class: 'btn btn-success btn-lg' %>
+          <% else %>
+            <%= f.submit 'いいね', class: 'btn btn-success btn-lg disabled' %>
+            <p>ログインしてください</p>
+          <% end %>
         </div>
       </div>
     <% end %>
