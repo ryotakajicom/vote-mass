@@ -12,7 +12,7 @@
 
   <div class="col-md-3 col-sm-6 col-xs-12">
     <p class="site-title text-center"><%= link_to @site.site_name, @site.site_url, target: '_blank' %></p>
-    <p class="text-center">XXXいいね</p>
+    <p class="text-center"><strong><%= @count_vote %></strong>いいね</p>
     <%= form_for(@vote) do |f|%>
       <div class="form-group">
         <%= f.hidden_field :site_id, :value => params[:id] %>

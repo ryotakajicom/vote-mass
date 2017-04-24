@@ -6,6 +6,7 @@ class SitesController < ApplicationController
   def show
     @site = Site.find(params[:id])
     @vote = @site.votes.build()
+    @count_vote = @site.votes.count
   end
 
   def new

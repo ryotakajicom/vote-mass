@@ -1,0 +1,22 @@
+<h1>いいねランキング</h1>
+<% if @sites.present? %>
+  <div class="row">
+    <% @sites.each_with_index do |site, index| %>
+      <div class="site">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading text-center">
+              <img src="<%= site.site_image %>" alt="" >
+            </div>
+            <div class="panel-body">
+              <p class="site-title"><%= link_to site.site_name, site %></p>
+            </div>
+            <div class="panel-footer">
+              <p class="text-center"><%= index+1 %>位: <%= @ranking_counts[site.id] %> いいね</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
