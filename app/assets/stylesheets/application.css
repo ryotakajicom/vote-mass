@@ -37,6 +37,11 @@ p.site-title {
   overflow: hidden;
 }
 
+.jumbotron{
+  padding-top: 10px;
+  padding-bottom: 10px
+}
+
 /* site#show# */
 .btn-like {
   margin-top: 20px;
