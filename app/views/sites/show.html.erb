@@ -15,14 +15,16 @@
     <%= form_for(@vote) do |f|%>
       <div class="form-group">
         <%= f.hidden_field :site_id, :value => params[:id] %>
+        <%= f.hidden_field :user_id, :value => session[:user_id] %>
         <%= f.text_area :comment, class: 'form-control input-large', placeholder: 'コメント(任意)' %>
         <div class="text-center btn-like">
-          <% if logged_in? %>
+          <% if logged_in? && !voted? %>
             <%= f.submit 'いいね', class: 'btn btn-success btn-lg' %>
           <% else %>
             <%= f.submit 'いいね', class: 'btn btn-success btn-lg disabled' %>
-            <p>ログインしてください</p>
           <% end %>
+          <% unless logged_in? %><p>ログインしてください</p><% end %>
+          <% if logged_in? && voted? %><p>いいねは1人1回までです</p><% end %>
         </div>
       </div>
     <% end %>
