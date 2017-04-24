@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-3 col-sm-6 col-xs-12 col-md-offset-3">
+    <div class="site">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          <img src="<%= @site.site_image %>" alt="">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 col-sm-6 col-xs-12">
+    <p class="site-title text-center"><%= link_to @site.site_name, @site.site_url, target: '_blank' %></p>
+    <p class="text-center">XXXいいね</p>
+    <%= form_for(@vote) do |f|%>
+      <div class="form-group">
+        <%= f.hidden_field :site_id, :value => params[:id] %>
+        <%= f.text_area :comment, class: 'form-control input-large', placeholder: 'コメント(任意)' %>
+        <div class="text-center btn-like">
+          <%= f.submit 'いいね', class: 'btn btn-success btn-lg' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
